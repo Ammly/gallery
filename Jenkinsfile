@@ -24,7 +24,7 @@ pipeline {
   stages {
     stage('clone repository') {
         steps{
-            sh 'Cloning repository'
+            sh 'echo Cloning repository'
             git 'https://github.com/Ammly/gallery'
         }
     }

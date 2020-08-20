@@ -23,11 +23,12 @@ pipeline {
 
   stages {
     stage('clone repository') {
-        steps{
+        steps {
             sh 'echo Cloning repository'
             git 'https://github.com/Ammly/gallery'
         }
     }
+
     stage('Install dependencies') {
       steps {
         sh 'echo installing dependencies...'

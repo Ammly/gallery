@@ -97,19 +97,21 @@ def notifyBuild(String buildStatus = 'STARTED') {
     color = 'GREEN'
     colorCode = '#00FF00'
     summary = """
+    :sunglasses:
     ```
-      *${subject}* :joy:\n
+      ${subject}\n
       EXECUTED: Job *${env.JOB_NAME} : ${env.BUILD_NUMBER})*\n\n
 
-        View console output here\n
-        (${env.BUILD_URL})[${env.JOB_NAME} :${env.BUILD_NUMBER}]\n
+      View console output here\n
+      [${env.JOB_NAME} :${env.BUILD_NUMBER}](${env.BUILD_URL})\n
 
-        Site Link:\n
-        (https://darkroom-gallery.herokuapp.com)[https://darkroom-gallery.herokuapp.com]\n
+      Site Link:\n
+      [https://darkroom-gallery.herokuapp.com](https://darkroom-gallery.herokuapp.com)\n
 
         Repo Link:\n
-        (https://github.com/Ammly/gallery)[https://github.com/Ammly/gallery]\n
+        [https://github.com/Ammly/gallery](https://github.com/Ammly/gallery)\n
     ```
+    :v:
     """
   } else {
     color = 'RED'

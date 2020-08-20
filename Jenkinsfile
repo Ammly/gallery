@@ -1,5 +1,5 @@
 pipeline {
-  agent any {args '-u root'}
+  agent any
 
   environment {
         EMAIL_BODY =

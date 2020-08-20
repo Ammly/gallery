@@ -96,7 +96,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = '#00FF00'
-    summary = "
+    summary = """
     ```
       *${subject}* :joy:\n
       EXECUTED: Job *${env.JOB_NAME} : ${env.BUILD_NUMBER})*\n\n
@@ -110,7 +110,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
         Repo Link:\n
         (https://github.com/Ammly/gallery)[https://github.com/Ammly/gallery]\n
     ```
-    "
+    """
   } else {
     color = 'RED'
     colorCode = '#FF0000'

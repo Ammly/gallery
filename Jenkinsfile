@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent any {args '-u root'}
 
   environment {
         EMAIL_BODY =
@@ -24,6 +24,7 @@ pipeline {
   stages {
     stage('clone repository') {
         steps{
+            sh 'Cloning repository'
             git 'https://github.com/Ammly/gallery'
         }
     }
@@ -93,12 +94,15 @@ def notifyBuild(String buildStatus = 'STARTED') {
   if (buildStatus == 'STARTED') {
     color = 'YELLOW'
     colorCode = '#FFFF00'
+    summary = "${subject} :aaw_yeah: (${env.BUILD_URL})"
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = '#00FF00'
+    summary = "${subject} :success-kid: (${env.BUILD_URL})"
   } else {
     color = 'RED'
     colorCode = '#FF0000'
+    summary = "${subject} :coffin_dance: (${env.BUILD_URL})"
   }
 
   // Send notifications

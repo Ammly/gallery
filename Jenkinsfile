@@ -1,7 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+        image 'node:6-alpine'
+        args '-p 3000:3000'
+    }
+  }
 
   environment {
+        CI = 'true'
+
         EMAIL_BODY =
          """
             <p> EXECUTED: Job <b> \'${env.JOB_NAME} : ${env.BUILD_NUMBER})\' </b> </p>
@@ -29,7 +36,7 @@ pipeline {
         }
     }
 
-    stage('Install dependencies') {
+    stage('Build') {
       steps {
         sh 'echo installing dependencies...'
         // sh "apk add nodejs"

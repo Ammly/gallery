@@ -99,17 +99,16 @@ def notifyBuild(String buildStatus = 'STARTED') {
     summary = """
     :sunglasses:
     ```
-      ${subject}\n
-      EXECUTED: Job *${env.JOB_NAME} : ${env.BUILD_NUMBER})*\n\n
+      ${subject}\n\n
 
       View console output here\n
-      [${env.JOB_NAME} :${env.BUILD_NUMBER}](${env.BUILD_URL})\n
+      ${env.BUILD_URL}\n
 
       Site Link:\n
-      [https://darkroom-gallery.herokuapp.com](https://darkroom-gallery.herokuapp.com)\n
+      https://darkroom-gallery.herokuapp.com\n
 
-        Repo Link:\n
-        [https://github.com/Ammly/gallery](https://github.com/Ammly/gallery)\n
+      Repo Link:\n
+      https://github.com/Ammly/gallery\n
     ```
     :v:
     """

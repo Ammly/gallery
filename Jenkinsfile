@@ -35,14 +35,14 @@ pipeline {
     stage('Build') {
       steps {
         sh 'echo installing dependencies...'
-        sh "npm install"
+        // sh "npm install"
       }
     }
 
     stage('Test') {
       steps {
         sh 'echo Testing...'
-        sh 'npm test'
+        // sh 'npm test'
       }
     }
 

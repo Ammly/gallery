@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-        image 'node:6-alpine'
+        image 'node:14-alpine'
         args '-p 3000:3000'
     }
   }
@@ -26,12 +26,9 @@ pipeline {
 
     }
 
-  tools {nodejs "node"}
-
   stages {
     stage('clone repository') {
         steps {
-            sh 'echo Cloning repository'
             git 'https://github.com/Ammly/gallery'
         }
     }
@@ -39,8 +36,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'echo installing dependencies...'
-        // sh "apk add nodejs"
-        sh "echo $PATH"
         sh "npm install"
       }
     }

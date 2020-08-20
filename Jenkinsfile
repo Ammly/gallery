@@ -27,9 +27,12 @@ pipeline {
             git 'https://github.com/Ammly/gallery'
         }
     }
-    stage('Build') {
+    stage('Install dependencies') {
       steps {
-        sh 'echo Building...'
+        sh 'echo installing dependencies...'
+        sh "apk add nodejs"
+        sh "echo $PATH"
+        sh "npm install"
       }
     }
 

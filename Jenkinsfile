@@ -1,10 +1,6 @@
 pipeline {
-  agent {
-    docker {
-        image 'node:14-alpine'
-        args '-p 3000:3000'
-    }
-  }
+
+  agent any
 
   environment {
 
@@ -25,10 +21,14 @@ pipeline {
 
     }
 
+  tools {nodejs "node"}
+
   stages {
     stage('clone repository') {
         steps {
-            git 'https://github.com/Ammly/gallery'
+          sh 'echo Cloning repository'
+
+          git 'https://github.com/Ammly/gallery'
         }
     }
 
@@ -100,7 +100,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = '#00FF00'
-    summary = "${subject} :success-kid: (${env.BUILD_URL})"
+    summary = "${subject} :success-kid: (${env.BUILD_URL}) (Site Link: https://darkroom-gallery.herokuapp.com)"
   } else {
     color = 'RED'
     colorCode = '#FF0000'

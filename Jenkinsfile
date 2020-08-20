@@ -75,10 +75,6 @@ pipeline {
                subject: EMAIL_SUBJECT_FAILURE,
                to: EMAIL_RECEPIENT
         }
-
-        always {
-           slackSend('DONE')
-       }
     }
 }
 

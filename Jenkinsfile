@@ -96,24 +96,21 @@ def notifyBuild(String buildStatus = 'STARTED') {
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = '#00FF00'
-    summary = """
-      <p><b>${subject}</b> :joy:</p>
-      <p> EXECUTED: Job <b> \'${env.JOB_NAME} : ${env.BUILD_NUMBER})\' </b> </p>
-      <p>
-        View console output here
-        "<a href="${env.BUILD_URL}">${env.JOB_NAME} :${env.BUILD_NUMBER} </a>"
-        </b>
-      </p>
-      <p>
-        Site Link:
-        "<a href="https://darkroom-gallery.herokuapp.com">https://darkroom-gallery.herokuapp.com</a>"
-        </b>
-      </p>
-      <p>
-        Repo Link:
-        "<a href="https://github.com/Ammly/gallery">https://github.com/Ammly/gallery</a>"
-      </p>
-    """
+    summary = "
+    ```
+      *${subject}* :joy:\n
+      EXECUTED: Job *${env.JOB_NAME} : ${env.BUILD_NUMBER})*\n\n
+
+        View console output here\n
+        (${env.BUILD_URL})[${env.JOB_NAME} :${env.BUILD_NUMBER}]\n
+
+        Site Link:\n
+        (https://darkroom-gallery.herokuapp.com)[https://darkroom-gallery.herokuapp.com]\n
+
+        Repo Link:\n
+        (https://github.com/Ammly/gallery)[https://github.com/Ammly/gallery]\n
+    ```
+    "
   } else {
     color = 'RED'
     colorCode = '#FF0000'
